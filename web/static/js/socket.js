@@ -59,14 +59,21 @@ let list    = $('#message-list');
 let message = $('#message');
 let name    = $('#name');
 
+
 message.on('keypress', event => {
-  if (event.keyCode == 13) {
-    channel.push('new_message', { name: name.val(), message: message.val() });
-    message.val('');
+
   navigator.geolocation.getCurrentPosition(function(position) {
-  console.log(position.coords.latitude, position.coords.longitude);
-});
-  }
+  let userLat = position.coords.latitude;
+  // let userLat = 4
+  let userLong = position.coords.longitude;
+  console.log(userLat);
+    if ((40.5 < userLat && userLat < 40.8) && (-73.8 > userLong && userLong > -74.1)) {
+      if (event.keyCode == 13){
+      channel.push('new_message', { name: name.val(), message: message.val() });
+      message.val('');
+    }}
+  });
+
 });
 
 channel.on('new_message', payload => {

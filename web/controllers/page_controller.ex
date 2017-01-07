@@ -3,7 +3,5 @@ defmodule HelloPhoenix.PageController do
 
   def index(conn, _params) do
     render conn, "index.html"
-    GeoIP.lookup(conn.peer |> Tuple.to_list |> Enum.join("."))
-
   end
 end

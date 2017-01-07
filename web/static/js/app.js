@@ -19,3 +19,8 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 import socket from "./socket"
+// import {Socket, Presence} from "phoenix"
+
+// let user = document.getElementById("User").innerText
+// let socket = new Socket("/socket", {params: {user: user}})
+// socket.connect()

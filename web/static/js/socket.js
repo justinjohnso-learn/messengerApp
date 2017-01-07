@@ -59,15 +59,19 @@ let list    = $('#message-list');
 let message = $('#message');
 let name    = $('#name');
 
-
 message.on('keypress', event => {
 
   navigator.geolocation.getCurrentPosition(function(position) {
-  let userLat = position.coords.latitude;
   // let userLat = 4
+  let userLat = position.coords.latitude;
   let userLong = position.coords.longitude;
+  let NYGAlongMin = -73.8
+  let NYGAlongMax = -74.1
+  let NYGAlatMin = 40.5
+  let NYGAlatMax = 40.8
   console.log(userLat);
-    if ((40.5 < userLat && userLat < 40.8) && (-73.8 > userLong && userLong > -74.1)) {
+  console.log(userLong);
+    if ((NYGAlatMin < userLat && userLat < NYGAlatMax) && (NYGAlongMin > userLong && userLong > NYGAlongMax)) {
       if (event.keyCode == 13){
       channel.push('new_message', { name: name.val(), message: message.val() });
       message.val('');

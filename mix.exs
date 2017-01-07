@@ -18,7 +18,7 @@ defmodule HelloPhoenix.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {HelloPhoenix, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:geoip, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -37,7 +37,8 @@ defmodule HelloPhoenix.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:geoip, "~> 0.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
@@ -51,4 +52,7 @@ defmodule HelloPhoenix.Mixfile do
      "ecto.reset": ["ecto.drop", "ecto.setup"],
      "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
+
+
+
 end

@@ -63,6 +63,9 @@ message.on('keypress', event => {
   if (event.keyCode == 13) {
     channel.push('new_message', { name: name.val(), message: message.val() });
     message.val('');
+  navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
   }
 });
 

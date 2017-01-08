@@ -13,6 +13,7 @@ def create(conn, %{"user" => user_params}) do
   case HelloPhoenix.Registration.create(changeset, HelloPhoenix.Repo) do
     {:ok, changeset} ->
       conn
+      |> put_session(:current_user, changeset.id)
       |> put_flash(:info, "Your account was created")
       |> redirect(to: "/")
     {:error, changeset} ->

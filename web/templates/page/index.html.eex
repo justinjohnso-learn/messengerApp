@@ -4,6 +4,7 @@
 <div class='row form-group'>
   <div class='col-md-3'>
     <input type='text' id='name' class='form-control' placeholder='Name' />
+    <p><%= render @name_helper %></p>
   </div>
   <div class='col-md-9'>
     <input type='text' id='message' class='form-control' placeholder='Message' />

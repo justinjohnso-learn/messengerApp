@@ -2,7 +2,7 @@ defmodule HelloPhoenix.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", HelloPhoenix.RoomChannel
+  channel "room:*", HelloPhoenix.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,9 +19,14 @@ defmodule HelloPhoenix.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
+
   def connect(_params, socket) do
     {:ok, socket}
   end
+
+  # def connect(%{"user" => user}, socket) do
+  #   {:ok, assign(socket, :user, user)}
+  # end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
@@ -34,5 +39,7 @@ defmodule HelloPhoenix.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil
-channel "lobby", Chatroom.LobbyChannel
+  channel "lobby", Chatroom.LobbyChannel
 end
+
+

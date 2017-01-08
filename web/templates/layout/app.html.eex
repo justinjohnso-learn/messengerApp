@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello HelloPhoenix!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -16,6 +15,7 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
+<<<<<<< HEAD
             <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
             <%= link "Register", to: registration_path(@conn, :new) %>
             <%= if logged_in?(@conn) do %>
@@ -25,6 +25,8 @@
               <li><%= link "Login",    to: "/login" %></li>
              <li><%= link "Register", to: registration_path(@conn, :new) %></li>
             <% end %>
+=======
+>>>>>>> c40a48062e2371962f8621abf8de0563dde80c0f
           </ul>
         </nav>
         <span class="logo"></span>

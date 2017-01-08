@@ -15,12 +15,8 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<%#             <li><a href="https://generalassemb.ly/locations/new-york-city">GENERAL ASSEMBLY NEW YORK</a></li>
- %>
->>>>>>> 889aaacb4cb7bfb66bf6dce4f467f4ae7cce8211
+
+
             <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
             <%= if logged_in?(@conn) do %>
              <li><%= current_user(@conn).email %></li>
@@ -29,11 +25,7 @@
               <li><%= link "Login",    to: "/login" %></li>
              <li><%= link "Register", to: registration_path(@conn, :new) %></li>
             <% end %>
-<<<<<<< HEAD
-=======
->>>>>>> c40a48062e2371962f8621abf8de0563dde80c0f
-=======
->>>>>>> 889aaacb4cb7bfb66bf6dce4f467f4ae7cce8211
+
           </ul>
         </nav>
         <span class="logo"><a class="headText" href="https://generalassemb.ly/locations/new-york-city">GENERAL ASSEMBLY NEW YORK</a></span>

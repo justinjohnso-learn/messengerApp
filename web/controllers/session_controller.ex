@@ -19,5 +19,11 @@ defmodule HelloPhoenix.SessionController do
   end
 end
 
+  def delete(conn, _) do
+    conn
+    |> delete_session(:current_user)
+    |> put_flash(:info, "Logged out")
+    |> redirect(to: "/")
+  end
 
 end

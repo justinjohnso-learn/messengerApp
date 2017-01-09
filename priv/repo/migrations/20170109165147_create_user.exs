@@ -5,8 +5,8 @@ defmodule HelloPhoenix.Repo.Migrations.CreateUser do
     create table(:users) do
       add :email, :string
       add :crypted_password, :string
-
-      timestamps()
+      add :password, :string, virtual: true
+      timestamps
     end
     create unique_index(:users, [:email])
 

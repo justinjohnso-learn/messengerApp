@@ -26,19 +26,16 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-<<<<<<< HEAD
     config :hello_phoenix, HelloPhoenix.Repo,
       adapter: Ecto.Adapters.Postgres,
       url: System.get_env("DATABASE_URL"),
       pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
       ssl: false
-=======
 config :hello_phoenix, HelloPhoenix.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
->>>>>>> 92a19302119f1a683a2d1cddd67622bff0b23c39
 #
 # Where those two env variables return an absolute path to
 # the key and cert in disk or a relative path inside priv,

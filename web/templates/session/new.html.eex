@@ -1,3 +1,11 @@
+<%= if logged_in?(@conn) do %>
+
+ <h1>You're already logged in dude!</h1>
+  <p><%= link "Logout", to: session_path(@conn, :delete), method: :delete %> or go back to the <%= link "Chat", to: page_path(@conn, :index) %></p>
+
+
+<% else %>
+
 <h2>Login</h2>
 
 <%= form_for @conn, session_path(@conn, :create), [name: :session], fn f -> %>
@@ -14,4 +22,6 @@
   <div class="form-group">
     <%= submit "Login", class: "btn btn-primary" %>
   </div>
+<% end %>
+
 <% end %>

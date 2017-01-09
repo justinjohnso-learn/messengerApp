@@ -16,10 +16,10 @@ defmodule HelloPhoenix.Router do
   scope "/", HelloPhoenix do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/chat", PageController, :index
     resources "/registrations", RegistrationController, only: [:new, :create]
-    get    "/login",  SessionController, :new
-    post   "/login",  SessionController, :create
+    get    "/",  SessionController, :new
+    post   "/",  SessionController, :create
     delete "/logout", SessionController, :delete
   end
 

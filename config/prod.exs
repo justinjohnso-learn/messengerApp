@@ -13,8 +13,9 @@ use Mix.Config
 # which you typically run after static files are built.
 config :hello_phoenix, HelloPhoenix.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "https://git.heroku.com/generalassemblymessenger.git", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
+  secret_key_base: System.get_env("messengerkey")
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -24,12 +25,11 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#     config :hello_phoenix, HelloPhoenix.Endpoint,
-#       ...
-#       url: [host: "example.com", port: 443],
-#       https: [port: 443,
-#               keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#               certfile: System.get_env("SOME_APP_SSL_CERT_PATH")]
+    config :hello_phoenix, HelloPhoenix.Repo,
+      adapter: Ecto.Adapteres.Postgres,
+      url: System.get_env("postgres"),
+      pool_size: String.to_integer(System.get_env("poolsize") || "20"),
+      ssl: true
 #
 # Where those two env variables return an absolute path to
 # the key and cert in disk or a relative path inside priv,

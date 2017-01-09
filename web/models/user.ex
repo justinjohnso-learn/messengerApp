@@ -4,17 +4,23 @@ defmodule HelloPhoenix.User do
   schema "users" do
     field :email, :string
     field :crypted_password, :string
+    field :password, :string, virtual: true
+    timestamps
+  end
 
-    timestamps()
+  @required_fields ~w(email password)
+  @optional_fields ~w(email crypted_password)
+
+  def changeset(model, params \\ :empty) do
+    model
+    |> cast(params, @required_fields, @optional_fields)
+    |> unique_constraint(:email)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 5)
   end
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
-  def changeset(struct, params \\ %{}) do
-    struct
-    |> cast(params, [:email, :crypted_password])
-    |> validate_required([:email, :crypted_password])
-    |> unique_constraint(:email)
-  end
+
 end

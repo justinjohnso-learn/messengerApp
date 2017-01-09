@@ -27,7 +27,7 @@ config :logger, level: :info
 # to the previous section and set your `:url` port to 443:
 #
     config :hello_phoenix, HelloPhoenix.Repo,
-      adapter: Ecto.Adapteres.Postgres,
+      adapter: Ecto.Adapters.Postgres,
       url: System.get_env("postgres"),
       pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
       ssl: true
